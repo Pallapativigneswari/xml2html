@@ -1,0 +1,142 @@
+<students>
+    <student>
+        <hallticket>101</hallticket>
+        <name>Aadhya</name>
+        <course>Bachelor of Science</course>
+        <department>Computer Science</department>
+        <dob>2000-01-15</dob>
+    </student>
+    <student>
+        <hallticket>102</hallticket>
+        <name>adithi</name>
+        <course>Bachelor of Arts</course>
+        <department>English Literature</department>
+        <dob>1999-08-22</dob>
+    </student>
+    <student>
+        <hallticket>103</hallticket>
+        <name>Aarna</name>
+        <course>Bachelor of Science</course>
+        <department>Computer Science</department>
+        <dob>1999-08-21</dob>
+    </student>
+    <student>
+        <hallticket>104</hallticket>
+        <name>Dhriti</name>
+        <course>Bachelor of Arts</course>
+        <department>English Literature</department>
+        <dob>1999-08-23</dob>
+    </student>
+    <student>
+        <hallticket>105</hallticket>
+        <name>Dhwani</name>
+        <course>Bachelor of Science</course>
+        <department>Computer Science</department>
+        <dob>1999-08-24</dob>
+    </student>
+    <student>
+        <hallticket>106</hallticket>
+        <name>Ayra</name>
+        <course>Bachelor of Arts</course>
+        <department>English Literature</department>
+        <dob>1999-08-25</dob>
+    </student>
+    <student>
+        <hallticket>107</hallticket>
+        <name>Vaanya</name>
+        <course>Bachelor of Science</course>
+        <department>Computer Science</department>
+        <dob>1999-08-26</dob>
+    </student>
+    <student>
+        <hallticket>108</hallticket>
+        <name>Isha</name>
+        <course>Bachelor of Arts</course>
+        <department>English Literature</department>
+        <dob>1999-08-27</dob>
+    </student>
+    <student>
+        <hallticket>109</hallticket>
+        <name>Kashvi</name>
+        <course>Bachelor of Science</course>
+        <department>Computer Science</department>
+        <dob>1999-08-28</dob>
+    </student>
+    <student>
+        <hallticket>110</hallticket>
+        <name>Aarohi</name>
+        <course>Bachelor of Arts</course>
+        <department>English Literature</department>
+        <dob>1999-08-11</dob>
+    </student>
+    <student>
+        <hallticket>111</hallticket>
+        <name>Mira</name>
+        <course>Bachelor of Science</course>
+        <department>Computer Science</department>
+        <dob>1999-08-12</dob>
+    </student>
+    <student>
+        <hallticket>112</hallticket>
+        <name>Medha</name>
+        <course>Bachelor of Arts</course>
+        <department>English Literature</department>
+        <dob>1999-08-14</dob>
+    </student>
+    <student>
+        <hallticket>113</hallticket>
+        <name>Samriddhi</name>
+        <course>Bachelor of Science</course>
+        <department>Computer Science</department>
+        <dob>1999-08-15</dob>
+    </student>
+    <student>
+        <hallticket>114</hallticket>
+        <name>Savya</name>
+        <course>Bachelor of Arts</course>
+        <department>English Literature</department>
+        <dob>1999-08-13</dob>
+    </student>
+    <student>
+        <hallticket>115</hallticket>
+        <name>Vedika</name>
+        <course>Computer Science</course>
+        <department>English Literature</department>
+        <dob>1999-08-16</dob>
+    </student>
+    <student>
+        <hallticket>116</hallticket>
+        <name>Aarya</name>
+        <course>Bachelor of Arts</course>
+        <department>English Literature</department>
+        <dob>1999-08-17</dob>
+    </student>
+    <student>
+        <hallticket>117</hallticket>
+        <name>Vamilha</name>
+        <course>Bachelor of Science</course>
+        <department>Computer Science</department>
+        <dob>1999-08-18</dob>
+    </student>
+    <student>
+        <hallticket>118</hallticket>
+        <name>Pari</name>
+        <course>Bachelor of Arts</course>
+        <department>English Literature</department>
+        <dob>1999-08-29</dob>
+    </student>
+    <student>
+        <hallticket>119</hallticket>
+        <name>Jiya</name>
+        <course>Bachelor of Science</course>
+        <department>Computer Science</department>
+        <dob>1999-08-19</dob>
+    </student>
+    <student>
+        <hallticket>120</hallticket>
+        <name>Mehar</name>
+        <course>Bachelor of Arts</course>
+        <department>English Literature</department>
+        <dob>1999-08-18</dob>
+    </student>
+</students>

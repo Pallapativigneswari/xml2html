@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        .result p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Student Information Search</h1>
+    <label for="hallticket">Enter Hall Ticket Number:</label>
+    <input type="text" id="hallticket" placeholder="Enter Hall Ticket Number">
+    <button onclick="searchStudent()">Search</button>
+
+    <div id="result" class="result" style="display:none;"></div>
+</div>
+
+<script>
+// Sample XML data (can be loaded from a file or server)
+const xmlData = `
+<students>
+    <student>
+        <hallticket>101</hallticket>
+        <name>Aadhya</name>
+        <course>Bachelor of Science</course>
+        <department>Computer Science</department>
+        <dob>2000-01-15</dob>
+    </student>
+    <student>
+        <hallticket>102</hallticket>
+        <name>adithi</name>
+        <course>Bachelor of Arts</course>
+        <department>English Literature</department>
+        <dob>1999-08-22</dob>
+    </student>
+    <student>
+        <hallticket>103</hallticket>
+        <name>Aarna</name>
+        <course>Bachelor of Science</course>
+        <department>Computer Science</department>
+        <dob>1999-08-21</dob>
+    </student>
+    <student>
+        <hallticket>104</hallticket>
+        <name>Dhriti</name>
+        <course>Bachelor of Arts</course>
+        <department>English Literature</department>
+        <dob>1999-08-23</dob>
+    </student>
+    <student>
+        <hallticket>105</hallticket>
+        <name>Dhwani</name>
+        <course>Bachelor of Science</course>
+        <department>Computer Science</department>
+        <dob>1999-08-24</dob>
+    </student>
+    <student>
+        <hallticket>106</hallticket>
+        <name>Ayra</name>
+        <course>Bachelor of Arts</course>
+        <department>English Literature</department>
+        <dob>1999-08-25</dob>
+    </student>
+    <student>
+        <hallticket>107</hallticket>
+        <name>Vaanya</name>
+        <course>Bachelor of Science</course>
+        <department>Computer Science</department>
+        <dob>1999-08-26</dob>
+    </student>
+    <student>
+        <hallticket>108</hallticket>
+        <name>Isha</name>
+        <course>Bachelor of Arts</course>
+        <department>English Literature</department>
+        <dob>1999-08-27</dob>
+    </student>
+    <student>
+        <hallticket>109</hallticket>
+        <name>Kashvi</name>
+        <course>Bachelor of Science</course>
+        <department>Computer Science</department>
+        <dob>1999-08-28</dob>
+    </student>
+    <student>
+        <hallticket>110</hallticket>
+        <name>Aarohi</name>
+        <course>Bachelor of Arts</course>
+        <department>English Literature</department>
+        <dob>1999-08-11</dob>
+    </student>
+    <student>
+        <hallticket>111</hallticket>
+        <name>Mira</name>
+        <course>Bachelor of Science</course>
+        <department>Computer Science</department>
+        <dob>1999-08-12</dob>
+    </student>
+    <student>
+        <hallticket>112</hallticket>
+        <name>Medha</name>
+        <course>Bachelor of Arts</course>
+        <department>English Literature</department>
+        <dob>1999-08-14</dob>
+    </student>
+    <student>
+        <hallticket>113</hallticket>
+        <name>Samriddhi</name>
+        <course>Bachelor of Science</course>
+        <department>Computer Science</department>
+        <dob>1999-08-15</dob>
+    </student>
+    <student>
+        <hallticket>114</hallticket>
+        <name>Savya</name>
+        <course>Bachelor of Arts</course>
+        <department>English Literature</department>
+        <dob>1999-08-13</dob>
+    </student>
+    <student>
+        <hallticket>115</hallticket>
+        <name>Vedika</name>
+        <course>Computer Science</course>
+        <department>English Literature</department>
+        <dob>1999-08-16</dob>
+    </student>
+    <student>
+        <hallticket>116</hallticket>
+        <name>Aarya</name>
+        <course>Bachelor of Arts</course>
+        <department>English Literature</department>
+        <dob>1999-08-17</dob>
+    </student>
+    <student>
+        <hallticket>117</hallticket>
+        <name>Vamilha</name>
+        <course>Bachelor of Science</course>
+        <department>Computer Science</department>
+        <dob>1999-08-18</dob>
+    </student>
+    <student>
+        <hallticket>118</hallticket>
+        <name>Pari</name>
+        <course>Bachelor of Arts</course>
+        <department>English Literature</department>
+        <dob>1999-08-29</dob>
+    </student>
+    <student>
+        <hallticket>119</hallticket>
+        <name>Jiya</name>
+        <course>Bachelor of Science</course>
+        <department>Computer Science</department>
+        <dob>1999-08-19</dob>
+    </student>
+    <student>
+        <hallticket>120</hallticket>
+        <name>Mehar</name>
+        <course>Bachelor of Arts</course>
+        <department>English Literature</department>
+        <dob>1999-08-18</dob>
+    </student>
+</students>
+`;
+
+function searchStudent() {
+    const hallticket = document.getElementById("hallticket").value.trim();
+    const resultDiv = document.getElementById("result");
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xmlData, "application/xml");
+
+    const students = xmlDoc.getElementsByTagName("student");
+    let found = false;
+    
+    // Loop through each student and check the hallticket
+    for (let i = 0; i < students.length; i++) {
+        const student = students[i];
+        const ticket = student.getElementsByTagName("hallticket")[0].textContent;
+
+        if (ticket === hallticket) {
+            found = true;
+            const name = student.getElementsByTagName("name")[0].textContent;
+            const course = student.getElementsByTagName("course")[0].textContent;
+            const department = student.getElementsByTagName("department")[0].textContent;
+            const dob = student.getElementsByTagName("dob")[0].textContent;
+
+            resultDiv.innerHTML = `
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Course:</strong> ${course}</p>
+                <p><strong>Department:</strong> ${department}</p>
+                <p><strong>Date of Birth:</strong> ${dob}</p>
+            `;
+            resultDiv.style.display = "block";
+            break;
+        }
+    }
+
+    if (!found) {
+        resultDiv.innerHTML = "<p>No student found with this Hall Ticket Number.</p>";
+        resultDiv.style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>
